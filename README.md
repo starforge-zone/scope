@@ -1,2 +1,3 @@
-# scope
-A personal media space bringing you a fresh new "Scope".
+# 映璟 ìng Kíng (Scope)
+
+Capturing the pulse of the universe, decoding the now.
