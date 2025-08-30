@@ -12,9 +12,9 @@ const subscribeForm = reactive<Partial<SubscribeForm>>({ email: "" });
 const formOnSubmit = async (event: FormSubmitEvent<SubscribeForm>) => {
   const toast = useToast();
   toast.add({
-    title: "Success",
-    description: "You have been subscribed!",
-    color: "success",
+    title: "Warning",
+    description: "This feature is coming soon!",
+    color: "warning",
   });
   console.log(event);
 };
@@ -32,12 +32,23 @@ defineProps<{
 </script>
 <template>
   <section
-    class="flex flex-col items-center-safe justify-center-safe p-10 gap-5 bg-neutral-700"
+    class="relative flex flex-col items-center-safe justify-center-safe p-10 gap-5 rounded-3xl bg-neutral-300 overflow-hidden"
     :class="ui?.section"
   >
+    <!-- Gradient overlay -->
+    <div
+      aria-hidden="true"
+      class="pointer-events-none absolute inset-0 z-0 bg-linear-to-br/decreasing from-primary-300 to-secondary-300 blur-lg grayscale-25"
+    />
+    <!-- Overlay to increase contrast -->
+    <div
+      aria-hidden="true"
+      class="pointer-events-none absolute inset-0 z-0 bg-neutral-900 blur-lg opacity-25 dark:opacity-45"
+    />
+
     <!-- Text -->
     <div
-      class="flex flex-col items-center-safe justify-center-safe gap-3 md:gap-5 text-center"
+      class="relative z-10 flex flex-col items-center-safe justify-center-safe gap-3 md:gap-5 text-center"
       :class="ui?.text?.container"
     >
       <h2
@@ -53,8 +64,10 @@ defineProps<{
         Stay updated with our latest news and offers.
       </p>
     </div>
+
+    <!-- Form -->
     <u-form
-      class="flex flex-col justify-center-safe items-center-safe gap-4"
+      class="z-10 flex flex-col justify-center-safe items-center-safe gap-4"
       :state="subscribeForm"
       :schema="subscribeFormSchema"
       @submit="formOnSubmit"
@@ -62,8 +75,12 @@ defineProps<{
       <u-form-field name="email" size="xl">
         <u-input v-model="subscribeForm.email" />
       </u-form-field>
-      <u-button type="submit" icon="ic:baseline-send" variant="solid" size="xl"
-        >i'm in</u-button
+      <u-button
+        type="submit"
+        color="primary"
+        varient="solid"
+        trailing-icon="lets-icons:send-fill"
+        >Submit</u-button
       >
     </u-form>
   </section>

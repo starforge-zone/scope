@@ -1,6 +1,6 @@
 <template>
   <footer
-    class="p-2 min-h-72 w-full border-2 flex flex-col justify-center-safe content-center"
+    class="p-2 min-h-72 w-full flex flex-col justify-center-safe content-center gap-3"
   >
     <o-cta-email-sub class="flex-1" />
     <!-- Logo and Licenses -->
