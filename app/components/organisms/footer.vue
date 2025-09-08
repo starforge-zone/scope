@@ -2,7 +2,7 @@
   <footer
     class="p-2 min-h-72 w-full flex flex-col justify-center-safe content-center gap-3"
   >
-    <o-cta-email-sub class="flex-1" />
+    <m-cta-email-sub class="flex-1" />
     <!-- Logo and Licenses -->
     <section
       class="flex-1 my-3 px-5 flex flex-col-reverse md:flex-row justify-center-safe md:justify-around items-center-safe"
